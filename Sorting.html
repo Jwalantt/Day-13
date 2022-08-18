@@ -1,0 +1,77 @@
+<html>
+
+<head>
+   <title>Sorting</title>
+   <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css">
+   <script src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js" type="text/javascript"></script>
+
+   <style type="text/css">
+      #sort1,
+      #sort2 {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         width: 8 0%;
+      }
+
+      #sort1 li,
+      #sort2 li {
+         margin: 10px;
+         padding: 20px;
+         font-size: 20px;
+         height: 10px;
+      }
+
+      .default {
+         background: cadetblue;
+         border: 1px solid black;
+         color: black;
+      }
+   </style>
+
+   <script type="text/javascript">
+      $(document).ready(function () {
+
+         $("#sort1").sortable();
+
+         $("#sort2").sortable();
+
+         $("#sort1").sortable({
+            connectWith: "#sort2, #sort1"
+         });
+
+         $("#sort2").sortable({
+            connectWith: "#sort1, #sort2"
+         });
+
+      });
+   </script>
+</head>
+
+<body>
+   <div class="wrap">
+      <div class="wrap1">
+         <h3>Normal Digits</h3>
+         <ul id="sort1">
+            <li class="default">1</li>
+            <li class="default">2</li>
+            <li class="default">3</li>
+            <li class="default">4</li>
+         </ul>
+      </div>
+      <div class="wrap1">
+         <h3>Roman Digits</h3>
+         <ul id="sort2">
+            <li class="default">I</li>
+            <li class="default">II</li>
+            <li class="default">III</li>
+            <li class="default">IV</li>
+         </ul>
+      </div>
+   </div>
+   <hr />
+   <span id=result></span>
+</body>
+
+</html>
